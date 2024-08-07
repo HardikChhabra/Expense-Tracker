@@ -1,4 +1,4 @@
-const listVal = [
+export const listVal = [
     {
         name: "Home",
         per: 41.35,
@@ -25,4 +25,40 @@ const listVal = [
     },
 ]
 
-export default listVal;
+export const transactionsList = [
+    {
+      desc: "Snack",
+      type: "Expense",
+      date: "03 Aug 2024",
+      amount: -100,
+      id: 1
+    },
+    {
+      desc: "Travel",
+      type: "Expense",
+      date: "31 Jul 2024",
+      amount: -10,
+      id:2
+    },
+    {
+      desc: "Entertainment",
+      type: "Expense",
+      date: "31 Jul 2024",
+      amount: -600,
+      id:3
+    },
+    {
+      desc: "Snack",
+      type: "Expense",
+      date: "24 Jul 2024",
+      amount: -40,
+      id:4
+    },
+    {
+      desc: "Pocket Money",
+      type: "Income",
+      date: "02 Jul 2024",
+      amount: 3000,
+      id:5
+    },
+  ]

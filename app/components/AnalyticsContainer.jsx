@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import AnalyticTile from './AnalyticTile';
 import AnalyticChart from './AnalyticChart';
-import listVal from '../data';
+import {listVal} from '../data';
 
 const AnalyticsContainer = () => {
     const [objs, setObjs] = useState([]);
