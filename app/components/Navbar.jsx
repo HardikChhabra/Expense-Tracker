@@ -5,9 +5,7 @@ import { usePathname } from 'next/navigation';
 const Navbar = () => {
 
     const pathName = usePathname();
-    useEffect(() => {
-        console.log(pathName);
-    })
+    
     return (
         <nav className="bg-white border-gray-200 ">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

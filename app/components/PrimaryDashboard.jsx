@@ -21,7 +21,7 @@ const PrimaryDashboard = () => {
     })
     return (
         <>
-            <div className='flex flex-row pt-8 justify-between px-32'>
+            <div className='flex flex-row mt-8 justify-between px-32'>
                 <div className='text-3xl font-medium text-grey-900'>
                     Hello, {usernameRef}!
                 </div>
