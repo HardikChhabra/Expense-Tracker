@@ -1,10 +1,41 @@
 'use client'
 import Link from 'next/link';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation';
-const Navbar = () => {
 
-    const pathName = usePathname();
+
+const Navbar = () => {
+    const [selected, setSelected] = useState(null);
+    const [pathName, setPathName] = useState(usePathname());
+
+    const listVals = [
+        {
+            url: '/dashboard',
+            text: 'Dashboard',
+            id: 1
+        },
+        {
+            url: '/transactions',
+            text: 'Transactions',
+            id:2
+        },
+        {
+            url: '/analytics',
+            text: 'Analytics',
+            id:3
+        },
+        {
+            url: '/savings',
+            text: 'Savings',
+            id:4
+        },
+        {
+            url: '/accounts',
+            text: 'Accounts',
+            id:5
+        },
+    ]
+
     
     return (
         <nav className="bg-white border-gray-200 ">
@@ -15,21 +46,7 @@ const Navbar = () => {
                 </Link>
                 <div className="w-full md:block md:w-auto" id="navbar-default">
                     <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white ">
-                        <li>
-                            <Link href="/dashboard" className={`block py-2 px-3 text-gray-900 ${pathName == '/dashboard'?'text-blue-700' : 'text-gray-900'} rounded md:bg-transparent md:hover:text-blue-700 md:p-0  `} aria-current="page">Dashboard</Link>
-                        </li>
-                        <li>
-                            <Link href="/transactions" className={`block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ${pathName == '/transactions'?'text-blue-700' : 'text-gray-900'} `}>Transactions</Link>
-                        </li>
-                        <li>
-                            <Link href="/analytics" className={`block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ${pathName == '/analytics'?'text-blue-700' : 'text-gray-900'} `}>Analytics</Link>
-                        </li>
-                        <li>
-                            <Link href="/savings" className={`block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ${pathName == '/savings'?'text-blue-700' : 'text-gray-900'}`}>Savings</Link>
-                        </li>
-                        <li>
-                            <Link href="/accounts" className={`block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 ${pathName == '/accounts'?'text-blue-700' : 'text-gray-900'} `}>Accounts</Link>
-                        </li>
+                        {listVals.map((item, index) => (<li key={index} onClick={() => setSelected(index)}><Link href={item.url} className={`block py-2 px-3 text-gray-900 ${selected === index?'text-blue-700' : 'text-gray-900'} rounded md:bg-transparent md:hover:text-blue-700 md:p-0`} >{item.text}</Link></li>))}
                     </ul>
                 </div>
                 <div className='flex flex-row'>

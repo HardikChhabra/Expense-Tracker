@@ -62,3 +62,38 @@ export const transactionsList = [
       id:5
     },
   ]
+
+export const goalsList = [
+  {
+    goalName: 'New Phone',
+    goalVal:10000,
+    savingsVal: 5000,
+    primaryColor:'rgb(238, 75, 43)',
+    secondaryColor: 'white',
+    time: '30 days'
+  },
+  {
+    goalName: 'Macbook',
+    goalVal:20000,
+    savingsVal: 5000,
+    primaryColor:'rgb(255, 182, 193)',
+    secondaryColor: 'white',
+    time: '60 days'
+  },
+  {
+    goalName: 'House',
+    goalVal:200000,
+    savingsVal: 50000,
+    primaryColor:'rgb(65, 105, 225)',
+    secondaryColor: 'black',
+    time: '2 years'
+  },
+  {
+    goalName: 'Car',
+    goalVal:200000,
+    savingsVal: 5000,
+    primaryColor:'rgb(253, 218, 13)',
+    secondaryColor: 'black',
+    time: '3 years'
+  },
+]
