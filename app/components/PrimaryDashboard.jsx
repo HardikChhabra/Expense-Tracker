@@ -43,8 +43,8 @@ const PrimaryDashboard = () => {
                 </div>
             </div>
             <div className='mx-32 mb-32 flex flex-row justify-center'>
-                <div className='mx-2'><AnalyticsContainer/></div>
-                <div className='mx-2'><TransactionArea /></div>
+                <div className='mx-4'><AnalyticsContainer/></div>
+                <div className='mx-4'><TransactionArea /></div>
             </div>
         </>
     )
