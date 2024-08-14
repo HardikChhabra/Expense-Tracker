@@ -4,7 +4,7 @@ const CreditCard = ({username, balance, income, expense}) => {
   return (
     <div className="w-96 h-56 m-auto bg-red-100 rounded-xl relative text-white shadow-2xl transition-transform transform hover:scale-110">
             
-                <img className="relative object-cover w-full h-full rounded-xl" src="https://i.imgur.com/kGkSg1v.png" />
+                <img className="relative object-cover w-full h-full rounded-xl" src="/creditCard.png" />
                 
                 <div className="w-full px-8 absolute top-8">
                     <div className="flex justify-between">
@@ -16,7 +16,7 @@ const CreditCard = ({username, balance, income, expense}) => {
                                 {username}
                             </p>
                         </div>
-                        <img className="w-14 h-14" src="https://i.imgur.com/bbPHJVe.png"/>
+                        <img className="w-14 h-14" src="/creditCardIcon.png"/>
                     </div>
                     <div className="pt-1">
                         <p className="font-light">

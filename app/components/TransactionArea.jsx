@@ -5,6 +5,8 @@ import { transactionsList } from '../data';
 const TransactionArea = () => {
   const [transactions, setTransactions] = useState([]);
 
+  const fieldAscDescHandler = (field, isAsc) => {}
+  
   const sortWithDateDesc = () => {
     setTransactions(transactions.toSorted((a, b) => { return (b.date > a.date ? 1 : (a.date === b.date ? 0 : -1)) }));
   }
