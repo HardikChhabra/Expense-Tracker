@@ -4,33 +4,32 @@ import { transactionsList } from '../data';
 
 const TransactionArea = () => {
   const [transactions, setTransactions] = useState([]);
+  const [sortedField, setSortedField] = useState();
+  const [isSortedAsc, setIsSortedAsc] = useState(false);
 
-  const fieldAscDescHandler = (field, isAsc) => {}
-  
-  const sortWithDateDesc = () => {
-    setTransactions(transactions.toSorted((a, b) => { return (b.date > a.date ? 1 : (a.date === b.date ? 0 : -1)) }));
-  }
-  const sortWithDateAsc = () => {
-    setTransactions(transactions.toSorted((a, b) => { return (a.date > b.date ? 1 : (a.date === b.date ? 0 : -1)) }));
-  }
-
-  const sortWithAmountDesc = () => {
-    setTransactions(transactions.toSorted((a, b) => b.amount - a.amount));
-  }
-  const sortWithAmountAsc = () => {
-    setTransactions(transactions.toSorted((a, b) => a.amount - b.amount));
-  }
-
-  const sortWithTypeExpensesFirst = () => {
-    setTransactions(transactions.toSorted((a, b) => { return (a.type > b.type ? 1 : (a.type === b.type ? 0 : -1)) }))
-  }
-  const sortWithTypeIncomeFirst = () => {
-    setTransactions(transactions.toSorted((a, b) => { return (b.type > a.type ? 1 : (b.type === a.type ? 0 : -1)) }))
+  const fieldAscDescHandler = (field, isAsc) => {
+    switch (field) {
+      case 'date': {
+        isAsc? setTransactions(transactions.toSorted((a, b) => { return (a.date > b.date ? 1 : (a.date === b.date ? 0 : -1)) })): setTransactions(transactions.toSorted((a, b) => { return (b.date > a.date ? 1 : (a.date === b.date ? 0 : -1)) }));
+        break;
+      }
+      case 'amount': {
+        isAsc? setTransactions(transactions.toSorted((a, b) => a.amount - b.amount)): setTransactions(transactions.toSorted((a, b) => b.amount - a.amount));
+        break;
+      }
+      case 'type': {
+        isAsc?setTransactions(transactions.toSorted((a, b) => { return (b.type > a.type ? 1 : (b.type === a.type ? 0 : -1)) })):setTransactions(transactions.toSorted((a, b) => { return (a.type > b.type ? 1 : (a.type === b.type ? 0 : -1)) }));
+        break;
+      }
+      default: {
+        setTransactions(transactionsList);
+      }
+    }
   }
 
   useEffect(() => {
-    setTransactions(transactionsList);
-  }, [])
+    fieldAscDescHandler(sortedField, isSortedAsc);
+  }, [sortedField, isSortedAsc])
   return (
     <div className='border rounded-lg'>
       {/* header */}
@@ -49,39 +48,24 @@ const TransactionArea = () => {
         <div className='col-span-2 text-sm font-bold text-gray-500 flex flex-col'>
 
           {/* heading */}
-          <h6 className='col-span-2 text-sm font-bold text-gray-500'>Type</h6>
+          <h6 onClick={() => {setSortedField('type');setIsSortedAsc(!isSortedAsc);}} className='col-span-2 cursor-pointer text-sm font-bold text-gray-500'>Type</h6>
 
-          {/* icons */}
-          <span className='flex flex-row'>
-            <img src="/arrow_up.png" alt="asc" className='h-4' onClick={sortWithTypeExpensesFirst} />
-            <img src="/arrow_down.png" alt="desc" className='h-4' onClick={sortWithTypeIncomeFirst}/>
-          </span>
         </div>
 
         {/* Date item */}
         <div className='col-span-2 text-sm font-bold text-gray-500 flex flex-col'>
 
           {/* heading */}
-          <h6 className='col-span-2 text-sm font-bold text-gray-500'>Date</h6>
+          <h6 onClick={() => {setSortedField('date');setIsSortedAsc(!isSortedAsc);}} className='col-span-2 cursor-pointer text-sm font-bold text-gray-500'>Date</h6>
 
-          {/* icons */}
-          <span className='flex flex-row'>
-            <img src="/arrow_up.png" alt="asc" className='h-4' onClick={sortWithDateDesc}/>
-            <img src="/arrow_down.png" alt="desc" className='h-4' onClick={sortWithDateAsc}/>
-          </span>
         </div>
 
         {/* Amount item */}
         <div className='col-span-2 text-sm font-bold text-gray-500 flex flex-col'>
 
           {/* heading */}
-          <h6 className='col-span-2 text-sm font-bold text-gray-500'>Amount</h6>
+          <h6 onClick={() => {setSortedField('amount');setIsSortedAsc(!isSortedAsc);}} className='col-span-2 cursor-pointer text-sm font-bold text-gray-500'>Amount</h6>
 
-          {/* icons */}
-          <span className='flex flex-row'>
-            <img src="/arrow_up.png" alt="asc" className='h-4' onClick={sortWithAmountDesc} />
-            <img src="/arrow_down.png" alt="desc" className='h-4' onClick={sortWithAmountAsc} />
-          </span>
         </div>
 
         {/* Edit and delete icons item */}
