@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import SavingsTile from "../components/SavingsTile";
-import { goalsList } from "../data";
+import SavingsTile from "../../components/SavingsTile";
+import { goalsList } from "../../data";
 
 const page = () => {
   const [goals, setGoals] = useState([]);
@@ -9,7 +9,15 @@ const page = () => {
     setGoals(goalsList);
   }, []);
   return (
-    <>
+    <h1 className="flex flex-col text-center items-center content-center">
+      Coming soon
+    </h1>
+  );
+};
+
+export default page;
+
+/* <>
       <div className="flex flex-row mt-8 justify-between px-32">
         <div className="text-3xl font-medium text-grey-900">Savings</div>
       </div>
@@ -28,8 +36,4 @@ const page = () => {
             </div>
           ))}
       </div>
-    </>
-  );
-};
-
-export default page;
+    </> */

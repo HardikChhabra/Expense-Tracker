@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import TimePeriodList from "../components/TimePeriodList";
-import TransactionArea from "../components/TransactionArea";
+import TimePeriodList from "../../components/TimePeriodList";
+import TransactionArea from "../../components/TransactionArea";
 
 const page = () => {
   return (

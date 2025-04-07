@@ -1,35 +1,33 @@
 "use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import React, { useState } from "react";
 
 const Navbar = () => {
   const [selected, setSelected] = useState(null);
-  const [pathName, setPathName] = useState(usePathname());
 
   const listVals = [
     {
-      url: "/dashboard",
+      url: "/",
       text: "Dashboard",
       id: 1,
     },
     {
-      url: "/transactions",
+      url: "/pages/transactions",
       text: "Transactions",
       id: 2,
     },
     {
-      url: "/analytics",
+      url: "/pages/analytics",
       text: "Analytics",
       id: 3,
     },
     {
-      url: "/savings",
+      url: "/pages/savings",
       text: "Savings",
       id: 4,
     },
     {
-      url: "/accounts",
+      url: "/pages/accounts",
       text: "Accounts",
       id: 5,
     },
