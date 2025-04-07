@@ -16,7 +16,7 @@ const TimePeriodList = () => {
   return (
     <ul className="flex-wrap items-center justify-center text-gray-900 border flex rounded-lg">
       {listVals.map((item, index) => (
-        <div key={index}>
+        <div key={index} className="flex flex-row">
           <li>
             <button
               onClick={() => setSelected(index)}
@@ -27,7 +27,9 @@ const TimePeriodList = () => {
               {item}
             </button>
           </li>
-          <div className="min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
+          {index != listVals.length - 1 && (
+            <div className="min-h-[1em] w-px self-stretch bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25"></div>
+          )}
         </div>
       ))}
     </ul>
